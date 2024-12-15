@@ -8,7 +8,9 @@ namespace DemoAppGitHub
         {
             Console.WriteLine("Hello, GitHub!"); // Prosty komunikat
             Console.WriteLine("Dzisiaj jest: " + DateTime.Now); // Aktualna data
+            Console.WriteLine("Witaj ponownie, GitHub!");
             Console.ReadLine(); // Zatrzymanie konsoli
+
         }
     }
 }
