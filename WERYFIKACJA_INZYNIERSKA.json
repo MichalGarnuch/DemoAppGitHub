@@ -1,0 +1,23 @@
+{
+  "repository": "DemoAppGitHub",
+  "branch": "wersja-inzynierska-2026",
+  "base_ref": "master",
+  "base_commit": "9fdaa097f7f93f32dfab00dfe68fddd31a01adae",
+  "date": "2026-10-29",
+  "checks": [
+    {
+      "command_or_scope": "Kompilacja Program.cs Roslynem/.NET 8",
+      "result": "PASS"
+    },
+    {
+      "command_or_scope": "Uruchomienie bez argumentów, --utc, --help",
+      "result": "PASS: trzy poprawne wykonania, kod 0"
+    },
+    {
+      "command_or_scope": "--unknown",
+      "result": "PASS: stderr i kod 2; proces nie oczekuje na wejście"
+    }
+  ],
+  "limitations": "Nie uruchomiono pełnego builda przez MSBuild ze względu na ograniczenie inicjalizacji procesu w środowisku. Nie testowano wszystkich kultur i systemów operacyjnych; invariant i format O zapewniają jawny kontrakt na poziomie API.",
+  "production_deployment_performed": false
+}

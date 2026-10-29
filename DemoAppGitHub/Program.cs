@@ -1,19 +1,23 @@
-﻿using System;
+using System.Globalization;
 
-namespace DemoAppGitHub
+namespace DemoAppGitHub;
+internal static class Program
 {
-    class Program
+    public static int Main(string[] args)
     {
-        static void Main(string[] args)
+        if (args.Contains("--help"))
         {
-
-            Console.WriteLine("a tego nigdy nie było!");
-            Console.WriteLine("Hello, GitHub!"); // Prosty komunikat
-            Console.WriteLine("Witaj ponownie, GitHub!");
-            Console.WriteLine("Dzisiaj jest: " + DateTime.Now); // Aktualna data
-            Console.WriteLine("tak tam czesc usunałem tu dodałem!");
-            Console.ReadLine(); // Zatrzymanie konsoli
-
+            Console.WriteLine("Usage: DemoAppGitHub [--utc]");
+            return 0;
         }
+        if (args.Any(arg => arg != "--utc"))
+        {
+            Console.Error.WriteLine("Unknown argument. Use --help.");
+            return 2;
+        }
+        var now = args.Contains("--utc") ? DateTimeOffset.UtcNow : DateTimeOffset.Now;
+        Console.WriteLine("Hello, GitHub!");
+        Console.WriteLine(now.ToString("O", CultureInfo.InvariantCulture));
+        return 0; // No ReadLine: safe in CI and redirected processes.
     }
 }
